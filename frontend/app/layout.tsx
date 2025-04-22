@@ -1,5 +1,6 @@
 // app/layout.tsx
 
+import { TemperatureProvider } from '@/context/TemperatureContext';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="antialiased bg-background text-foreground">
+        <TemperatureProvider>
         {children}
+        </TemperatureProvider>
       </body>
     </html>
   );

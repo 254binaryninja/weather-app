@@ -5,8 +5,8 @@ use App\Http\Controllers\WeatherController;
 
 //Define the weather API routes 
 
-Route::get('/weather/current-city', [WeatherController::class, 'current']);
-Route::get('/weather/forecast', [WeatherController::class, 'forecast']);
+Route::get('/api/weather/current-city', [WeatherController::class, 'current']);
+Route::get('/api/weather/forecast', [WeatherController::class, 'forecast']);
 
 Route::get('/', function () {
     return view('welcome');

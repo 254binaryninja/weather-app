@@ -40,7 +40,7 @@ export function useWeatherEvents(): {
       }));
     });
 
-    // Fixed: Changed 'e' to 'Error' for proper typing
+    // Fixed: Changed incorrect type to 'Error' for proper typing
     const errorSub = eventBus.subscribe<Error>(EVENTS.WEATHER_ERROR, (error) => {
       setWeatherState(prev => ({
         ...prev,

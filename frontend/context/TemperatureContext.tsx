@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useMemo } from 'react';
 import { TemperatureUnit } from '@/types';
 
 interface TemperatureContextType {
@@ -26,9 +26,15 @@ export function TemperatureProvider({
     setTemperatureUnit(prevUnit => prevUnit === 'celsius' ? 'fahrenheit' : 'celsius');
   };
 
+  const contextValue = useMemo(() => ({
+    temperatureUnit,
+    setTemperatureUnit,
+    toggleTemperatureUnit
+  }), [temperatureUnit]);
+
   return (
     <TemperatureContext.Provider
-      value={{ temperatureUnit, setTemperatureUnit, toggleTemperatureUnit }}
+      value={contextValue}
     >
       {children}
     </TemperatureContext.Provider>

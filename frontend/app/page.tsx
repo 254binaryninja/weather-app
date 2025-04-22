@@ -6,7 +6,6 @@ import WeatherCard from "@/components/WeatherCard";
 import ForecastCard from "@/components/ForecastCard";
 import { useEffect } from "react";
 import { useWeatherEvents } from "@/hooks/useWeatherEvents";
-import { TemperatureProvider } from "@/context/TemperatureContext";
 
 export default function Home() {
   const { selectCity } = useWeatherEvents();
@@ -17,7 +16,6 @@ export default function Home() {
   }, [selectCity]);
 
   return (
-    <TemperatureProvider>
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100">
         <Header />
         
@@ -26,7 +24,7 @@ export default function Home() {
             <SearchBox />
           </div>
           
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <WeatherCard />
             <ForecastCard />
           </div>
@@ -36,6 +34,5 @@ export default function Home() {
           <p>Weather App - Pawa IT Assessment 2025</p>
         </footer>
       </div>
-    </TemperatureProvider>
   );
 }
